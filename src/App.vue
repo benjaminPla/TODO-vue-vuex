@@ -1,26 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class='app'>
+    <Today />
+    <Inputs />
+    <Board />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Today from './components/Today.vue'
+import Inputs from './components/Inputs.vue'
+import Board from './components/Board.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Today,
+    Inputs,
+    Board
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang='scss'>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+@import './variables';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  align-items: center;
+  background: linear-gradient(135deg, #FFC0CB 50%, #00FFFF 50%);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  .app {
+    background-color: $color5;
+    color: $color1;
+    font-family: 'Roboto', sans-serif;
+    padding: 30px;
+    border-radius: 3px;
+    min-width: 300px;
+  }
 }
 </style>
