@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'Inputs',
@@ -20,17 +20,24 @@ export default {
       display: false,
     };
   },
+  computed: {
+    ...mapState(['tasks']),
+  },
   methods: {
     displayInputs() {
       this.inputValue !== '' ? this.display = true : this.display = false;
     },
     addTaskParams() {
-      this.addTask({ title: this.inputValue, description: this.textAreaValue });
-      this.inputValue = '';
-      this.textAreaValue = '';
-      this.display = false;
+        if (!this.tasks.some(task => task.title === this.inputValue)) {
+        this.addTask({ title: this.inputValue, description: this.textAreaValue });
+        this.inputValue = '';
+        this.textAreaValue = '';
+        this.display = false;
+      } else {
+        alert('Task already exists!'); // add Swal
+      }
     },
-    ...mapMutations(['addTask'])
+    ...mapMutations(['addTask']),
   },
 };
 </script>
