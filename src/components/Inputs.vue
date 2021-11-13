@@ -1,10 +1,10 @@
 <template>
   <form>
     <div class='oneLineInputs'>
-      <input type='text' v-model='inputValue' @input='displayInputs' placeholder="New Task..." />
+      <input type='text' v-model='inputValue' @input='displayInputs' maxlength="15" placeholder="New Task..." />
       <button type='submit' v-show='display' @click.prevent='addTaskParams'>Add</button>
     </div>
-    <textarea v-model='textAreaValue' v-show='display' placeholder="Description..." />
+    <textarea v-model='textAreaValue' v-show='display' maxlength="30" placeholder="Description..." />
   </form>
 </template>
 
@@ -40,26 +40,32 @@ export default {
 
 .oneLineInputs {
   display: flex;
-  max-width: 100%;
-  align-items: center;
+  margin: 10px 0;
   input {
+    @include inputReset;
     width: 100%;
-    border: none;
-    padding: 10px;
-    background-color: $color4;
-    outline: none;
-    margin: 10px 0;
-    border-radius: 3px;
   }
   input::placeholder{
     color: $color2;
     font-size: 0.75rem;
   }
   button {
-    border: none;
-    outline: none;
-    // background: none;
+    @include inputReset;
     color: $color3;
+    cursor: pointer;
+    transition: 0.2s;
   }
+  button:hover {
+    transform: scale(1.05);
+  }
+}
+textarea {
+  @include inputReset;
+  width: 100%;
+  resize: none;
+}
+textarea::placeholder{
+  color: $color2;
+  font-size: 0.75rem;
 }
 </style>

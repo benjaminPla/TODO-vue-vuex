@@ -3,3 +3,15 @@ $color2: #efe5dc;
 $color3: #f3d8c7;
 $color4: #d0b8ac;
 $color5: #8f8f8f;
+$color6: #000000;
+
+$backgroundColor1: #ffc0cb;
+$backgroundColor2: #00ffff;
+
+@mixin inputReset {
+  border: 1px solid $color2;
+  border-radius: 3px;
+  outline: none;
+  background: $color1;
+  padding: 10px;
+}

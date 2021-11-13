@@ -32,13 +32,12 @@ export default {
 }
 body {
   align-items: center;
-  background: linear-gradient(135deg, #FFC0CB 50%, #00FFFF 50%);
+  background: linear-gradient(135deg, $backgroundColor1 50%, $backgroundColor2 50%);
   display: flex;
   height: 100vh;
   justify-content: center;
   .app {
-    background-color: $color5;
-    color: $color1;
+    background-color: $color1;
     font-family: 'Roboto', sans-serif;
     padding: 30px;
     border-radius: 3px;

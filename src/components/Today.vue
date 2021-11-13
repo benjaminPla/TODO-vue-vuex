@@ -11,7 +11,7 @@
     data(){
       return{
         text: new Date().toLocaleDateString(undefined, { weekday: 'long' }),
-        clock: null
+        clock: new Date().toLocaleTimeString('en-US'),
       }
     },
     created(){
